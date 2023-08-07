@@ -1,0 +1,39 @@
+{
+	"expo": {
+		"name": "OCHA Country Profile",
+		"slug": "Ocha-cp",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/iconandroid.png",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			},
+			"package": "com.gerardofurtado.Ochacp"
+		},
+		"androidStatusBar": {
+			"translucent": true,
+			"hidden": false,
+			"backgroundColor": "#00000000"
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "fcecc09f-1c8f-4b40-acca-0812c46a6eaf"
+			}
+		}
+	}
+}
