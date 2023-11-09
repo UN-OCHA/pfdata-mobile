@@ -88,6 +88,13 @@ function OverviewBarChart({
 								? colors.unColorLighter
 								: colors[`${fundType}Color`]
 						}
+					/>
+					<Rect
+						x={xScale(d.year)}
+						y={yScale.range()[1]}
+						width={xScale.bandwidth()}
+						height={yScale.range()[0] - yScale.range()[1]}
+						opacity={0}
 						onPress={() => handleTooltip(d)}
 						onClick={() => handleTooltip(d)} //REMOVE
 					/>
