@@ -7,7 +7,10 @@ module.exports = async function (env, argv) {
 	const isEnvProduction = env.mode === "production";
 
 	// Customize the config before returning it.
-	const config = await createExpoWebpackConfigAsync(env, argv);
+	const config = await createExpoWebpackConfigAsync(
+		{ ...env, removeUnusedImportExports: false },
+		argv
+	);
 
 	if (isEnvProduction) {
 		config.plugins.push(
