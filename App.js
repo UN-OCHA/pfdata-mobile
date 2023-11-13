@@ -14,6 +14,7 @@ import Error from "./screens/Error";
 import Country from "./screens/Country";
 import BottomTabNavigator from "./components/BottomTabNavigator";
 import createDesaturatedColors from "./utils/desaturatedColors";
+import * as serviceWorkerRegistration from "./src/serviceWorkerRegistration";
 
 //for debugging
 if (typeof window !== "undefined") {
@@ -84,3 +85,5 @@ function App() {
 }
 
 export default App;
+
+serviceWorkerRegistration.register();
