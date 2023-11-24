@@ -71,3 +71,28 @@ self.addEventListener("message", event => {
 });
 
 // Any other custom service worker logic can go here.
+
+// URLs
+const urls = [
+	"https://cbpfapi.unocha.org/vo2/odata/LastModified",
+	"https://cbpfgms.github.io/pfbi-data/map/unworldmap.json",
+	"https://cbpfgms.github.io/pfbi-data/mst/MstCountry.json",
+	"https://cbpfgms.github.io/pfbi-data/mst/MstDonor.json",
+	"https://cbpfgms.github.io/pfbi-data/mst/MstAllocation.json",
+	"https://cbpfgms.github.io/pfbi-data/mst/MstFund.json",
+	"https://cbpfgms.github.io/pfbi-data/mst/MstOrganization.json",
+	"https://cbpfgms.github.io/pfbi-data/mst/MstCluster.json",
+	"https://cbpfgms.github.io/pfbi-data/mst/MstPartner.json",
+	"https://cerfgms-webapi.unocha.org/v1/agency/All.json",
+	"https://cbpfgms.github.io/pfbi-data/contributionbycerfcbpf.csv",
+	"https://cbpfgms.github.io/pfbi-data/sectorSummarybyOrg.csv",
+	"https://cbpfgms.github.io/pfbi-data/fund_adm1.csv"
+  ];
+  
+  // Register routes
+  urls.forEach(url => {
+	registerRoute(
+	  new RegExp(url),
+	  new StaleWhileRevalidate()
+	);
+  });
