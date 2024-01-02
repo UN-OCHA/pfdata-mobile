@@ -14,8 +14,6 @@ function useSwipe(actionRight, rangeOffset = 5) {
 		const positionX = event.nativeEvent.changedTouches[0].pageX;
 		const range = windowWidth / rangeOffset;
 
-		console.log(positionX, firstTouch, range);
-
 		if (positionX - firstTouch > range) {
 			actionRight && actionRight();
 		}
