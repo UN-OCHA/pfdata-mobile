@@ -65,6 +65,7 @@ function PieChart({ data, fundType, viewWidth, setTooltipData, showModal }) {
 								? colors[`${d.data.name}Color`]
 								: colorsByFund[colorsByFund.length - 2 - i]
 						}
+						style={styles.path}
 						onPress={() => handleTooltip(d)}
 						onClick={() => handleTooltip(d)} //REMOVE
 					/>
@@ -109,10 +110,18 @@ function PieChart({ data, fundType, viewWidth, setTooltipData, showModal }) {
 
 const styles = StyleSheet.create({
 	text: {
-		fontSize: 20,
+		fontSize: 18,
 		fontWeight: "bold",
 		textAnchor: "middle",
 		alignmentBaseline: "middle",
+		fontFamily: "Roboto",
+		stroke: "#fff",
+		strokeWidth: 2,
+		paintOrder: "stroke",
+		pointerEvents: "none",
+	},
+	path: {
+		outlineStyle: "none",
 	},
 });
 

@@ -29,6 +29,7 @@ function OverviewBarChart({
 		.range([padding[3], svgWidth - padding[1]])
 		.paddingInner(0.4)
 		.paddingOuter(0.2);
+	const stepDifference = (xScale.step() - xScale.bandwidth()) / 2;
 	const yScale = scaleLinear()
 		.domain([0, max(data, d => d[fundType])])
 		.range([svgHeight - padding[2], padding[0]]);
@@ -90,11 +91,12 @@ function OverviewBarChart({
 						}
 					/>
 					<Rect
-						x={xScale(d.year)}
+						x={xScale(d.year) - stepDifference}
 						y={yScale.range()[1]}
-						width={xScale.bandwidth()}
+						width={xScale.step()}
 						height={yScale.range()[0] - yScale.range()[1]}
 						opacity={0}
+						style={styles.tooltipRect}
 						onPress={() => handleTooltip(d)}
 						onClick={() => handleTooltip(d)} //REMOVE
 					/>
@@ -134,6 +136,9 @@ const styles = StyleSheet.create({
 		textAnchor: "end",
 		fontSize: 10,
 		fill: "#666",
+	},
+	tooltipRect: {
+		outlineStyle: "none",
 	},
 });
 

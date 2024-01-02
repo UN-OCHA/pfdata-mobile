@@ -12,6 +12,7 @@ import DonutText from "../components/DonutText";
 import Title from "../components/Title";
 import OverviewBarChart from "../components/OverviewBarChart";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import useSwipe from "../utils/useswipe";
 
 function Overview({ navigation, route }) {
 	const data = useContext(DataContext);
@@ -74,6 +75,10 @@ function Overview({ navigation, route }) {
 		return acc;
 	}, []);
 
+	const { onTouchStart, onTouchEnd } = useSwipe(() =>
+		navigation.openDrawer()
+	);
+
 	function onLayout(e) {
 		setViewWidth(e.nativeEvent.layout.width);
 	}
@@ -98,7 +103,11 @@ function Overview({ navigation, route }) {
 	}, []);
 
 	return (
-		<View style={{ flex: 1 }}>
+		<View
+			onTouchStart={onTouchStart}
+			onTouchEnd={onTouchEnd}
+			style={{ flex: 1 }}
+		>
 			<ScrollView
 				style={styles.container}
 				stickyHeaderIndices={[0]}
