@@ -109,6 +109,16 @@ function Country({ navigation, route }) {
 				{hasContributions && (
 					<DrawerPaper.CollapsedItem
 						label="Contributions"
+						theme={{
+							colors: {
+								onSecondaryContainer: colors.unColorDarker,
+							},
+							fonts: {
+								labelMedium: {
+									letterSpacing: 0.2,
+								},
+							},
+						}}
 						focusedIcon={() => (
 							<Ionicons
 								name="md-cash"
@@ -167,7 +177,7 @@ function Country({ navigation, route }) {
 					drawerContent={props => <CustomDrawerContent {...props} />}
 					screenOptions={{
 						drawerStyle: {
-							width: "25%",
+							width: "30%",
 							paddingTop: 20,
 							alignItems: "center",
 						},
