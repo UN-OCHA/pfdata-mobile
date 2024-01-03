@@ -7,7 +7,6 @@ function useSwipe(actionRight, rangeOffset = 5) {
 
 	function onTouchStart(event) {
 		firstTouch = event.nativeEvent.touches[0].pageX;
-		console.log(firstTouch);
 	}
 
 	function onTouchEnd(event) {

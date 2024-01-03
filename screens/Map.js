@@ -14,6 +14,7 @@ import CerfLayer from "../components/CerfLayer";
 import CbpfLayer from "../components/CbpfLayer";
 import formatSI from "../utils/formatSi";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import useSwipe from "../utils/useswipe";
 
 function Map({ navigation, route }) {
 	const maxRadius = 20;
@@ -48,6 +49,10 @@ function Map({ navigation, route }) {
 	const [viewWidth, setViewWidth] = useState(0);
 	const [viewHeight, setViewHeight] = useState(0);
 	const [snackbarVisible, setSnackbarVisible] = useState(false);
+
+	const { onTouchStart, onTouchEnd } = useSwipe(() =>
+		navigation.openDrawer()
+	);
 
 	function onDismissSnackBar() {
 		setSnackbarVisible(false);
@@ -89,7 +94,11 @@ function Map({ navigation, route }) {
 	}, []);
 
 	return (
-		<View style={styles.container}>
+		<View
+			onTouchStart={onTouchStart}
+			onTouchEnd={onTouchEnd}
+			style={styles.container}
+		>
 			<TopSelector
 				fundId={route.params.fundId}
 				year={year}

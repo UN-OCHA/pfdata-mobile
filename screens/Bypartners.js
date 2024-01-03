@@ -9,6 +9,7 @@ import TopCardRow from "../components/TopCardRow";
 import Title from "../components/Title";
 import BarChart from "../components/BarChart";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import useSwipe from "../utils/useswipe";
 
 function ByPartners({ navigation, route }) {
 	const { colors } = useTheme();
@@ -29,6 +30,10 @@ function ByPartners({ navigation, route }) {
 	} = useContext(SelectionContext);
 	const { list, setList } = useContext(ListContext);
 	const [snackbarVisible, setSnackbarVisible] = useState(false);
+
+	const { onTouchStart, onTouchEnd } = useSwipe(() =>
+		navigation.openDrawer()
+	);
 
 	function onDismissSnackBar() {
 		setSnackbarVisible(false);
@@ -63,7 +68,11 @@ function ByPartners({ navigation, route }) {
 	}, []);
 
 	return (
-		<View style={{ flex: 1 }}>
+		<View
+			onTouchStart={onTouchStart}
+			onTouchEnd={onTouchEnd}
+			style={{ flex: 1 }}
+		>
 			<ScrollView
 				style={styles.container}
 				stickyHeaderIndices={[0]}

@@ -4,6 +4,7 @@ import { Text, IconButton } from "react-native-paper";
 import logo from "../assets/icon.png";
 import DataContext from "../context/DataContext";
 import { timeFormat } from "d3-time-format";
+import useSwipe from "../utils/useswipe";
 
 //this shows a spinner while the data is loading
 function About({ navigation }) {
@@ -11,8 +12,17 @@ function About({ navigation }) {
 	const formatDate = timeFormat("%d %B, %Y (%H:%M:%S)");
 	const date = formatDate(new Date(data.lastModified));
 	const thisYear = new Date().getFullYear();
+
+	const { onTouchStart, onTouchEnd } = useSwipe(() =>
+		navigation.openDrawer()
+	);
+
 	return (
-		<View style={{ flex: 1, backgroundColor: "#fff" }}>
+		<View
+			onTouchStart={onTouchStart}
+			onTouchEnd={onTouchEnd}
+			style={{ flex: 1, backgroundColor: "#fff" }}
+		>
 			<View style={styles.button}>
 				<IconButton
 					icon="arrow-expand-right"
