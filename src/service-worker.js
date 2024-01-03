@@ -43,7 +43,7 @@ registerRoute(
 
 		return true;
 	},
-	createHandlerBoundToURL(process.env.PUBLIC_URL + "/index.html")
+	createHandlerBoundToURL(process.env.EXPO_PUBLIC_URL + "/index.html")
 );
 
 // An example runtime caching route for requests that aren't handled by the
@@ -86,13 +86,10 @@ const urls = [
 	"https://cerfgms-webapi.unocha.org/v1/agency/All.json",
 	"https://cbpfgms.github.io/pfbi-data/contributionbycerfcbpf.csv",
 	"https://cbpfgms.github.io/pfbi-data/sectorSummarybyOrg.csv",
-	"https://cbpfgms.github.io/pfbi-data/fund_adm1.csv"
-  ];
-  
-  // Register routes
-  urls.forEach(url => {
-	registerRoute(
-	  new RegExp(url),
-	  new StaleWhileRevalidate()
-	);
-  });
+	"https://cbpfgms.github.io/pfbi-data/fund_adm1.csv",
+];
+
+// Register routes
+urls.forEach(url => {
+	registerRoute(new RegExp(url), new StaleWhileRevalidate());
+});
