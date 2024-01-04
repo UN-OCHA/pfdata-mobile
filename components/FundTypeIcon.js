@@ -8,7 +8,10 @@ function FundTypeIcon(props) {
 		<View
 			style={{
 				...styles.container,
-				backgroundColor: colors[props.fund + "Color"],
+				backgroundColor:
+					colors[
+						props.fund === "cerf" ? "cerfColorDarker2" : "cbpfColor"
+					],
 			}}
 		>
 			<Text

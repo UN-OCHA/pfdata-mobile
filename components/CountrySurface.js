@@ -86,7 +86,7 @@ const CountrySurface = memo(function CountrySurface(props) {
 					>
 						<Menu.Item
 							theme={{
-								colors: { onSurface: "#fff", surface: "red" },
+								colors: { onSurface: "#fff" },
 							}}
 							style={styles.menuItem}
 							onPress={handleList}

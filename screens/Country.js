@@ -115,7 +115,7 @@ function Country({ navigation, route }) {
 							},
 							fonts: {
 								labelMedium: {
-									letterSpacing: 0.2,
+									letterSpacing: 0.15,
 								},
 							},
 						}}

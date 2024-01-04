@@ -33,6 +33,7 @@ const theme = {
 		cerfColor: "#FBD45C",
 		cerfColorDarker: "#C9AA4A",
 		cerfColorLighter: "#FCEB8F",
+		cerfColorDarker2: "#E6C255",
 		cbpfColor: "#F37261",
 		cbpfColorDarker: "#E74C3C",
 		cbpfColorLighter: "#F79C8F",

@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 import { Text, Card, Snackbar } from "react-native-paper";
 import { Svg, Circle, Path } from "react-native-svg";
-import { geoEquirectangular, scaleSqrt, max } from "d3";
+import { geoEquirectangular, scaleSqrt, max, sum } from "d3";
 import { feature } from "topojson-client";
 import DataContext from "../context/DataContext";
 import SelectionContext from "../context/SelectionContext";
@@ -40,7 +40,7 @@ function Map({ navigation, route }) {
 
 	const mapData = countryData.allocations.find(d => d.year === year).map;
 
-	const allocationsValue = max(mapData[`${fundType}MapData`], d => d.value);
+	const allocationsValue = sum(mapData[`${fundType}MapData`], d => d.value);
 
 	const maxValue = max(mapData.cbpfMapData, d => d.value);
 
@@ -124,6 +124,13 @@ function Map({ navigation, route }) {
 						/>
 					</Card.Content>
 				</Card>
+			</View>
+			<View style={styles.noteContainer}>
+				<Text style={styles.noteContainerText}>
+					Note: geographic data values may differ from{" "}
+					<Text style={{ fontStyle: "italic" }}>Overview</Text> tab
+					values
+				</Text>
 			</View>
 			<View
 				style={styles.mapContainer}
@@ -245,6 +252,15 @@ const styles = StyleSheet.create({
 		margin: 10,
 		flexDirection: "column",
 		backgroundColor: "#eee",
+	},
+	noteContainer: {
+		marginLeft: 14,
+		marginRight: 14,
+		marginTop: -4,
+	},
+	noteContainerText: {
+		fontSize: 11,
+		fontFamily: "Roboto",
 	},
 	mapContainer: {
 		flex: 1,
