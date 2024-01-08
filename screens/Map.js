@@ -40,7 +40,11 @@ function Map({ navigation, route }) {
 
 	const mapData = countryData.allocations.find(d => d.year === year).map;
 
-	const allocationsValue = sum(mapData[`${fundType}MapData`], d => d.value);
+	const overviewData = countryData.allocations.find(
+		d => d.year === year
+	).overview;
+
+	const allocationsValue = overviewData[fundType];
 
 	const maxValue = max(mapData.cbpfMapData, d => d.value);
 
@@ -127,9 +131,7 @@ function Map({ navigation, route }) {
 			</View>
 			<View style={styles.noteContainer}>
 				<Text style={styles.noteContainerText}>
-					Note: geographic data values may differ from{" "}
-					<Text style={{ fontStyle: "italic" }}>Overview</Text> tab
-					values
+					Note: some allocations may not have geolocation data.
 				</Text>
 			</View>
 			<View
