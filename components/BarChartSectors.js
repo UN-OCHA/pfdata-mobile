@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
 		borderBottomWidth: 1,
 	},
 	barChartName: {
-		width: "40%",
+		width: "42%",
 		justifyContent: "flex-start",
 		flexDirection: "row",
 		alignItems: "center",
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
 		flexWrap: "wrap",
 	},
 	barChartValue: {
-		width: "60%",
+		width: "58%",
 		flexDirection: "row",
 		justifyContent: "flex-start",
 		alignItems: "center",
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
 	icon: {
 		width: 20,
 		height: 20,
-		marginRight: 6,
+		marginRight: 12,
 	},
 });
 
